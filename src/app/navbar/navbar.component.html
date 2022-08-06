@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class = "navbar-nav">
+        <li class = "nav-item">
+            <a routerLink="/login" routerLinkActive="active" class="nav-link" >Login</a>
+        </li>
+        <ng-template #loggedOut>
+            <li  class = "nav-item">
+                <a routerLink="/logout" routerLinkActive="active" class="nav-link" >Logout</a>
+            </li>
+          </ng-template>
+        <li class = "nav-item">
+            <a routerLink="/about" routerLinkActive="active" class="nav-link" >about</a>
+        </li>
+    </ul>
+  </nav>
+
+<router-outlet></router-outlet>
