@@ -13,6 +13,30 @@
             <input  class ="form-control" id = "contactNumber"
             [(ngModel)] = "processRequestInfo.contactNumber" name = "contactNumber"/>
         </div>
+
+        <div class="form-group">
+            <label>Component Name : </label>
+            <input  class ="form-control" id = "componentName"
+            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.componentName" name = "componentName"/>
+        </div>
+
+        <div class="form-group">
+            <label>Component Type : </label>
+            <input  class ="form-control" id = "componentType"
+            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.componentType" name = "componentType"/>
+        </div>
+
+        <div class="form-group">
+            <label>Quantity : </label>
+            <input  class ="form-control" id = "quantity"
+            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.quantity" name = "quantity"/>
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <input  class ="form-control" type="text" id = "description"
+            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.description" name = "description"/>
+        </div>
     
         <button class = "btn btn-success" type ="submit">Submit</button>
     

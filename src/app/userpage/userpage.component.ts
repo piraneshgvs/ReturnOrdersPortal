@@ -18,13 +18,14 @@ export class UserpageComponent implements OnInit {
   constructor(private returnOrderService:ReturnOrderServiceService) { }
 
   ngOnInit(): void {
-    this.processRequestInfo = new ProcessRequestInfo("","")
-    this.defectiveComponentInfo = new DefectiveComponentInfo("Geer","Integral",0,"this should be fine");
+    this.processRequestInfo = new ProcessRequestInfo("","",new DefectiveComponentInfo("","",0,""));
+   // this.defectiveComponentInfo = new DefectiveComponentInfo("","",0,"");
   }
 
   onSubmit(){
    this.token = "Bearer"+JSON.stringify(sessionStorage.getItem("token")!);
     console.log(this.token);
+    console.log(this.processRequestInfo.defectiveComponentInfo.componentName);
     this.returnOrderService.postDefectiveDetails(this.token, this.processRequestInfo).subscribe(data=>{
       console.log(data);
      })
