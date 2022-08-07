@@ -20,13 +20,13 @@ export class UserpageComponent implements OnInit {
   userName !: string;
   
 
-  constructor(private returnOrderService:ReturnOrderServiceService, private router : ActivatedRoute) { }
+  constructor(private returnOrderService:ReturnOrderServiceService, private router : Router) { }
 
   ngOnInit(): void {
     this.processRequestInfo = new ProcessRequestInfo("","",new DefectiveComponentInfo("","",null,""));
    // this.defectiveComponentInfo = new DefectiveComponentInfo("","",0,"");
    let name = JSON.stringify(sessionStorage.getItem("userName")!);
-    this.userName = name;
+    this.userName = name.slice(1,name.length-1);
    
   }
 
@@ -37,6 +37,8 @@ export class UserpageComponent implements OnInit {
     this.processRequestInfo.userName=this.userName;
     this.returnOrderService.postDefectiveDetails(this.token, this.processRequestInfo).subscribe(data=>{
       console.log(data);
+      sessionStorage.setItem("reqId",data);
+      this.router.navigate(["/payment"]);
      })
   }
 

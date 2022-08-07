@@ -29,5 +29,12 @@ export class ReturnOrderServiceService {
     return this.http.get("http://localhost:8082/processing/getDefectiveDetails/"+userName,{headers:headers});
   }
 
+  getDefectiveDetailsById(token:string, id:number):Observable<any>{
+    var headers = new HttpHeaders().set("Authorization", "Bearer " + token);
+    headers.set('Content-Type', 'application/json');
+    console.log(id);
+    return this.http.get("http://localhost:8082/processing/getDetails/"+id,{headers:headers});
+  }
+
 
 }

@@ -10,13 +10,13 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
 import { UserpageComponent } from './userpage/userpage.component';
 import { DefectiveComponentInfo } from './defective-component-info';
 import { DefectivedetailsComponent } from './defectivedetails/defectivedetails.component';
-import { SecondpageComponent } from './secondpage/secondpage.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const router : Routes =[
   {path: "login", component: LoginpageComponent},
   {path: "userpage", component: UserpageComponent},
   {path: "defectivedetails", component: DefectivedetailsComponent},
-  {path: "secondpage", component:SecondpageComponent}
+  {path: "payment", component: PaymentComponent}
 ];
 
 @NgModule({
@@ -26,7 +26,8 @@ const router : Routes =[
     LoginpageComponent,
     UserpageComponent,
     DefectivedetailsComponent,
-    SecondpageComponent
+    PaymentComponent,
+
   ],
   imports: [
     BrowserModule,

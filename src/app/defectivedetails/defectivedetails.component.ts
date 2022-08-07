@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ReturnOrderServiceService } from '../return-order-service.service';
 
 @Component({
@@ -8,15 +9,14 @@ import { ReturnOrderServiceService } from '../return-order-service.service';
 })
 export class DefectivedetailsComponent implements OnInit {
 
-  constructor(private returnOrderService : ReturnOrderServiceService) { }
+  constructor(private returnOrderService : ReturnOrderServiceService, private router : Router) { }
 
   userName!:string;
   token!:string;
 
   ngOnInit(): void {
     let name = JSON.stringify(sessionStorage.getItem("userName")!);
-    u
-    console.log("hai",name.slice(1,2));
+    this.userName = name.slice(1,name.length-1);
     this.getDetails(this.userName);
   }
 
