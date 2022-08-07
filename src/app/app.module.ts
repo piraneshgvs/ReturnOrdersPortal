@@ -8,10 +8,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { UserpageComponent } from './userpage/userpage.component';
+import { DefectiveComponentInfo } from './defective-component-info';
+import { DefectivedetailsComponent } from './defectivedetails/defectivedetails.component';
+import { SecondpageComponent } from './secondpage/secondpage.component';
 
 const router : Routes =[
   {path: "login", component: LoginpageComponent},
-  {path: "userpage", component: UserpageComponent}
+  {path: "userpage", component: UserpageComponent},
+  {path: "defectivedetails", component: DefectivedetailsComponent},
+  {path: "secondpage", component:SecondpageComponent}
 ];
 
 @NgModule({
@@ -19,7 +24,9 @@ const router : Routes =[
     AppComponent,
     NavbarComponent,
     LoginpageComponent,
-    UserpageComponent
+    UserpageComponent,
+    DefectivedetailsComponent,
+    SecondpageComponent
   ],
   imports: [
     BrowserModule,

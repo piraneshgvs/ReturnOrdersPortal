@@ -23,7 +23,8 @@ export class LoginpageComponent implements OnInit {
         console.log(data);
         sessionStorage.setItem("token",data.jwttoken);
         console.log(data.contactNumber)
-        this.router.navigate(["/userpage",{state:{username:this.jwtRequest.username,contactNumber:data.contactNumber}}]);
+        sessionStorage.setItem("userName",this.jwtRequest.username);
+        this.router.navigate(["/userpage"]);
     })
   }
 

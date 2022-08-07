@@ -1,17 +1,16 @@
 <div class="col-md-6 offset-md-3">
     <h3> Defective Form </h3>
     <form (ngSubmit) = "onSubmit()">
-    
+       
         <div class="form-group">
             <label>UserName</label>
-            <input type="text" class ="form-control" id = "username"
-                [(ngModel)] = "processRequestInfo.userName" name = "username"/>
+            {{userName}}
         </div>
     
         <div class="form-group">
             <label>Contact Number</label>
             <input  class ="form-control" id = "contactNumber"
-            [(ngModel)] = "processRequestInfo.contactNumber" name = "contactNumber"/>
+            [(ngModel)] = "processRequestInfo.contactNumber" name = "contactNumber" value={{contactNumber}}/>
         </div>
 
         <div class="form-group">
