@@ -21,8 +21,9 @@ export class LoginpageComponent implements OnInit {
   onSubmit(){
     this.returnOrderService.autheticateUser(this.jwtRequest).subscribe(data=>{
         console.log(data);
-        sessionStorage.setItem("token",data.token);
-        this.router.navigate(["/userpage"]);
+        sessionStorage.setItem("token",data.jwttoken);
+        console.log(data.contactNumber)
+        this.router.navigate(["/userpage",{state:{username:this.jwtRequest.username,contactNumber:data.contactNumber}}]);
     })
   }
 

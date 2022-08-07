@@ -1,5 +1,6 @@
 import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DefectiveComponentInfo } from '../defective-component-info';
 import { ProcessRequestInfo } from '../process-request-info';
 import { ReturnOrderServiceService } from '../return-order-service.service';
@@ -15,15 +16,16 @@ export class UserpageComponent implements OnInit {
   defectiveComponentInfo !: DefectiveComponentInfo;
   token !: string;
 
-  constructor(private returnOrderService:ReturnOrderServiceService) { }
+  constructor(private returnOrderService:ReturnOrderServiceService, private router : ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.processRequestInfo = new ProcessRequestInfo("","",new DefectiveComponentInfo("","",0,""));
+    this.processRequestInfo = new ProcessRequestInfo("","",new DefectiveComponentInfo("","",null,""));
    // this.defectiveComponentInfo = new DefectiveComponentInfo("","",0,"");
+     console.log(this.router.snapshot.params);
   }
 
   onSubmit(){
-   this.token = "Bearer"+JSON.stringify(sessionStorage.getItem("token")!);
+   this.token = JSON.stringify(sessionStorage.getItem("token")!);
     console.log(this.token);
     console.log(this.processRequestInfo.defectiveComponentInfo.componentName);
     this.returnOrderService.postDefectiveDetails(this.token, this.processRequestInfo).subscribe(data=>{
