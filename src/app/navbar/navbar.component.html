@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <ul class = "navbar-nav">
-        <li class = "nav-item">
+        <li *ngIf="!loggedIn()"class = "nav-item">
             <a routerLink="/login" routerLinkActive="active" class="nav-link" >Login</a>
         </li>
         <ng-template #loggedOut>
@@ -8,7 +8,7 @@
                 <a routerLink="/logout" routerLinkActive="active" class="nav-link" >Logout</a>
             </li>
           </ng-template>
-        <li class = "nav-item">
+        <li *ngIf="loggedIn()" class = "nav-item">
             <a routerLink="/login" routerLinkActive="active" class="nav-link" onclick=sessionStorage.clear()>logout</a>
         </li>
     </ul>

@@ -10,18 +10,18 @@
         <div class="form-group">
             <label>Contact Number</label>
             <input  class ="form-control" id = "contactNumber"
-            [(ngModel)] = "processRequestInfo.contactNumber" name = "contactNumber" value={{contactNumber}}/>
+            [(ngModel)] = "processRequestInfo.contactNumber" name = "contactNumber" required/>
         </div>
 
         <div class="form-group">
             <label>Component Name : </label>
             <input  class ="form-control" id = "componentName"
-            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.componentName" name = "componentName"/>
+            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.componentName" name = "componentName" required/>
         </div>
 
         <div class="form-group">
         <label>Component Type : </label>
-        <select id="form-control" name="form-control" [(ngModel)] = "processRequestInfo.defectiveComponentInfo.componentType">
+        <select id="form-control" name="form-control" [(ngModel)] = "processRequestInfo.defectiveComponentInfo.componentType" required>
             <option value="Integral">Integral</option>
             <option value="Accessory">Accessory</option>
           </select>
@@ -30,13 +30,13 @@
         <div class="form-group">
             <label>Quantity : </label>
             <input  class ="form-control" id = "quantity"
-            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.quantity" name = "quantity"/>
+            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.quantity" name = "quantity" required/>
         </div>
 
         <div class="form-group">
             <label>Description</label>
             <input  class ="form-control" type="text" id = "description"
-            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.description" name = "description"/>
+            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.description" name = "description" required/>
         </div>
     
         <button class = "btn btn-success" type ="submit">Submit</button>

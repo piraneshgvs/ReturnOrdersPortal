@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { ReturnOrderServiceService } from '../return-order-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn : boolean = false;
+  constructor(private returnOrderService : ReturnOrderServiceService) { }
 
   ngOnInit(): void {
+   /* this.returnOrderService.loginStatusSubject.asObservable().subscribe(data=>{
+      this.isLoggedIn=this.returnOrderService.isLoggedIn();
+      this.checkLogin();
+    })*/
   }
 
+  loggedIn(){
+    return sessionStorage.getItem("token");
+  }
+ 
 
 }

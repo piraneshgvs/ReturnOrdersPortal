@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { JwtRequest } from './jwt-request';
 import { ProcessRequestInfo } from './process-request-info';
 
@@ -12,7 +12,9 @@ export class ReturnOrderServiceService {
 
   constructor(private http:HttpClient) { }
   
+  public loginStatusSubject=new Subject<boolean>();
 
+  
   autheticateUser(jwtRequest:JwtRequest):Observable<any>{
       return this.http.post("http://localhost:8081/authenticate",jwtRequest);  
   }
@@ -33,8 +35,17 @@ export class ReturnOrderServiceService {
     var headers = new HttpHeaders().set("Authorization", "Bearer " + token);
     headers.set('Content-Type', 'application/json');
     console.log(id);
-    return this.http.get("http://localhost:8082/processing/getDetails/"+id,{headers:headers});
+    return this.http.get("http://localhost:8082/processing/ProcessDetail/"+id,{headers:headers});
   }
 
+  public isLoggedIn(){
+    let tokenString = localStorage.getItem("token"); //get the token from localStorage
+    if(tokenString==undefined || tokenString=='' || tokenString== null){
+      return false;
+    }
+    else{
+     return true;
+    }
+  }
 
 }
