@@ -1,3 +1,52 @@
-<div>
-    <h4>Hai!!</h4>
+<div *ngIf="isDataLoaded">
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td>Request Id</td>
+                <td>{{processedChargeInfo.id}}</td>
+            </tr>
+            <tr>
+                <td>Contact Number</td>
+                <td>{{processRequestInfo.contactNumber}}</td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>Defective Component Details</b></td>
+            </tr>
+            <tr>
+                <td>Defective Component Name</td>
+                <td>{{processRequestInfo.defectiveComponentInfo.componentName}}</td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td>{{processRequestInfo.defectiveComponentInfo.componentType}}</td>
+            </tr>
+            <tr>
+                <td>Quantity</td>
+                <td>{{processRequestInfo.defectiveComponentInfo.quantity}}</td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>{{processRequestInfo.defectiveComponentInfo.description}}</td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>Processed Charge Info</b></td>
+            </tr>
+            <tr>
+                <td>Processed Charge</td>
+                <td>{{processedChargeInfo.processedCharge}}</td>
+            </tr>
+            <tr>
+                <td>Package and Delivery Charge</td>
+                <td>{{processedChargeInfo.packageAndDeliveryCharge}}</td>
+            </tr>
+            <tr>
+                <td>Total Charge</td>
+                <td>{{processedChargeInfo.packageAndDeliveryCharge+processedChargeInfo.processedCharge}}</td>
+            </tr>
+            <tr>
+                <td>Date of Delivery</td>
+                <td>{{processedChargeInfo.dateOfDelivery}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
