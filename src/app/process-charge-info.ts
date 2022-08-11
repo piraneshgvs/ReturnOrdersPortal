@@ -1,7 +1,7 @@
-export class ProcessChargeInfo {
+export class ProcessedChargeInfo {
        id : number;
        userName : string;
-	   processedCharge : number;
+	processedCharge : number;
        packageAndDeliveryCharge : number;
        dateOfDelivery : Date;
 
