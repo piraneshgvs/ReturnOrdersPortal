@@ -27,7 +27,6 @@ const router : Routes =[
     UserpageComponent,
     DefectivedetailsComponent,
     PaymentComponent,
-
   ],
   imports: [
     BrowserModule,

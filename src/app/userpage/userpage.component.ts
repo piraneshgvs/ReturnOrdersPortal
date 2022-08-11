@@ -24,7 +24,7 @@ export class UserpageComponent implements OnInit {
   constructor(private returnOrderService:ReturnOrderServiceService, private router : Router) { }
 
   ngOnInit(): void {
-    this.processRequestInfo = new ProcessRequestInfo("","",new DefectiveComponentInfo("","",null,""));
+    this.processRequestInfo = new ProcessRequestInfo(null,"","",new DefectiveComponentInfo("","",null,""));
    // this.defectiveComponentInfo = new DefectiveComponentInfo("","",0,"");
    let name = JSON.stringify(sessionStorage.getItem("userName")!);
     this.userName = name.slice(1,name.length-1);

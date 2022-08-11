@@ -24,7 +24,7 @@ export class LoginpageComponent implements OnInit {
         sessionStorage.setItem("token",data.jwttoken);
         console.log(data.contactNumber)
         sessionStorage.setItem("userName",this.jwtRequest.username);
-        this.router.navigate(["/userpage"]);
+        this.router.navigate(["/defectivedetails"]);
     })
   }
 

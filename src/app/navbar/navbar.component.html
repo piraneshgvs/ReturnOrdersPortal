@@ -1,17 +1,25 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-    <ul class = "navbar-nav">
-        <li *ngIf="!loggedIn()"class = "nav-item">
-            <a routerLink="/login" routerLinkActive="active" class="nav-link" >Login</a>
-        </li>
-        <ng-template #loggedOut>
-            <li  class = "nav-item">
-                <a routerLink="/logout" routerLinkActive="active" class="nav-link" >Logout</a>
+  <div>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <div>
+        <h4 style="color: white; padding-left: 70px;">Return Order Portal</h4>
+    </div>
+    <div class="navbar-collapse collapse" id="collapsingNavbar" style="justify-content:flex-end;padding-right:70px">
+        <ul class="navbar-nav">
+            <li *ngIf="!loggedIn()"class = "nav-item">
+                <a routerLink="/login" routerLinkActive="active" class="nav-link" ><h5>Login</h5></a>
             </li>
-          </ng-template>
-        <li *ngIf="loggedIn()" class = "nav-item">
-            <a routerLink="/login" routerLinkActive="active" class="nav-link" onclick=sessionStorage.clear()>logout</a>
-        </li>
-    </ul>
-  </nav>
+            <li *ngIf="loggedIn()" class = "nav-item">
+                <a routerLink="/defectivedetails" routerLinkActive="active" class="nav-link"><h5>Defective Details</h5></a>
+            </li>
+            <li *ngIf="loggedIn()" class = "nav-item">
+                <a routerLink="/userpage" routerLinkActive="active" class="nav-link"><h5>Return Order Form</h5></a>
+            </li>
+            <li *ngIf="loggedIn()" class = "nav-item">
+                <a routerLink="/login" routerLinkActive="active" class="nav-link" onclick=sessionStorage.clear()><h5>logout</h5></a>
+            </li>
+       </ul>
+    </div>
+    </nav>
+ 
 
 <router-outlet></router-outlet>
