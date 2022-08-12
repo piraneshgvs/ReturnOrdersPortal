@@ -36,6 +36,8 @@ ngOnInit() : void {
     this.isDataLoaded=true;
     })
   }
-
+clearItem(){
+  sessionStorage.removeItem("reqId");
+}
 
 }

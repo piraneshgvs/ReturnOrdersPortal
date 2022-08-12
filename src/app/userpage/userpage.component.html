@@ -1,45 +1,72 @@
 <div class="col-md-6 offset-md-3">
-    <h3> Defective Form </h3>
-    <form (ngSubmit) = "onSubmit()">
+    <h3 style="text-align: center"> Return Order Form </h3>
+    <h5 style="color: red;text-align: center">{{errorMessage}}</h5>
+    <form [formGroup]="forGrp!">
        
-        <div class="form-group">
+        <div class="form-group" style="padding-bottom:20px">
             <label>UserName</label>
-            {{userName}}
+            <h5>{{userName}}</h5>
         </div>
     
-        <div class="form-group">
+        <div class="form-group" style="padding-bottom:20px">
             <label>Contact Number</label>
-            <input  class ="form-control" id = "contactNumber"
-            [(ngModel)] = "processRequestInfo.contactNumber" name = "contactNumber" required/>
+            <input  class ="form-control" id = "contactNumber" formControlName="contactNumber" name = "contactNumber" style="padding-bottom: 10px" maxlength=10 required/>
+        </div>
+        <div *ngIf="forGrp.controls['contactNumber'].invalid && (forGrp.controls['contactNumber'].dirty || forGrp.controls['contactNumber'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="forGrp.controls['contactNumber'].errors?.['required']">
+            Contact Number is required
+        </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="padding-bottom:20px">
             <label>Component Name : </label>
-            <input  class ="form-control" id = "componentName"
-            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.componentName" name = "componentName" required/>
+            <input  class ="form-control" id = "componentName" formControlName="componentName" name = "componentName" style="padding-bottom: 10px" required/>
+        </div>
+        <div *ngIf="forGrp.controls['componentName'].invalid && (forGrp.controls['componentName'].dirty || forGrp.controls['componentName'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="forGrp.controls['componentName'].errors?.['required']">
+            Component Name is required.
+        </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="padding-bottom:20px">
         <label>Component Type : </label>
-        <select id="form-control" name="form-control" [(ngModel)] = "processRequestInfo.defectiveComponentInfo.componentType" required>
+        <select id="componentType" class="form-control" formControlName="componentType" style="padding-bottom: 10px" required>
             <option value="Integral">Integral</option>
             <option value="Accessory">Accessory</option>
           </select>
         </div>
-
-        <div class="form-group">
-            <label>Quantity : </label>
-            <input  class ="form-control" id = "quantity"
-            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.quantity" name = "quantity" required/>
+        <div *ngIf="forGrp.controls['componentType'].invalid && (forGrp.controls['componentType'].dirty || forGrp.controls['componentType'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="forGrp.controls['componentType'].errors?.['required']">
+            Component Type is required.
+        </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="padding-bottom:20px">
+            <label>Quantity : </label>
+            <input  class ="form-control" id = "quantity" formControlName="quantity" name = "quantity" style="padding-bottom: 10px" required/>
+        </div>
+        <div *ngIf="forGrp.controls['quantity'].invalid && (forGrp.controls['quantity'].dirty || forGrp.controls['quantity'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="forGrp.controls['quantity'].errors?.['required']">
+           Quantity is required.
+        </div>
+        </div>
+
+        <div class="form-group" style="padding-bottom:20px">
             <label>Description</label>
-            <textarea  class ="form-control" type="text" id = "description"
-            [(ngModel)] = "processRequestInfo.defectiveComponentInfo.description" name = "description" required></textarea>
+            <textarea  class ="form-control" type="text" id = "description" formControlName="description" name = "description" style="padding-bottom:100px" maxlength="255"  required></textarea>
+        </div>
+        <div *ngIf="forGrp.controls['description'].invalid && (forGrp.controls['description'].dirty || forGrp.controls['description'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="forGrp.controls['description'].errors?.['required']">
+            Description is required.
+        </div>
         </div>
     
-        <button class = "btn btn-success" type ="submit">Submit</button>
+        <button style="padding: 10px;" class="btn btn-primary w-100" type="button" (click)="onSubmit()">Submit</button>
     
     </form>
     </div> 

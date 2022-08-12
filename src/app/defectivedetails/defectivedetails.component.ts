@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProcessRequestInfo } from '../process-request-info';
 import { ReturnOrderServiceService } from '../return-order-service.service';
 
 @Component({
@@ -9,10 +10,15 @@ import { ReturnOrderServiceService } from '../return-order-service.service';
 })
 export class DefectivedetailsComponent implements OnInit {
 
+  panelOpenState = false;
+
   constructor(private returnOrderService : ReturnOrderServiceService, private router : Router) { }
 
   userName!:string;
   token!:string;
+  processRequestInfo !: ProcessRequestInfo[];
+  retrivedata: Array<object> = [];
+  entry:any;
 
   ngOnInit(): void {
     let name = JSON.stringify(sessionStorage.getItem("userName")!);
@@ -23,8 +29,10 @@ export class DefectivedetailsComponent implements OnInit {
   getDetails(userName:string){
     this.token = JSON.stringify(sessionStorage.getItem("token")!);
     console.log(this.token);
-   this.returnOrderService.getDefectiveDetails(this.token,this.userName).subscribe(data=>{
-       console.log(data);
+   this.returnOrderService.getDefectiveDetails(this.token,this.userName).subscribe((data)=>{
+    data.forEach(this.entry =>{ 
+       this.retrivedata.push(this.entry);
+    )}
    })
   }
 

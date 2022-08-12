@@ -1,52 +1,54 @@
 <div *ngIf="isDataLoaded">
-    <table class="table table-striped">
+    <h4 style="text-align: center">Defective Component and Price Charge Details</h4>
+    <table class="table table-striped" >
         <tbody>
             <tr>
-                <td>Request Id</td>
-                <td>{{processedChargeInfo.id}}</td>
+                <td style="padding-left: 400px">Request Id</td>
+                <td style="padding-right: 400px">{{processedChargeInfo.id}}</td>
             </tr>
             <tr>
-                <td>Contact Number</td>
+                <td style="padding-left: 400px">Contact Number</td>
                 <td>{{processRequestInfo.contactNumber}}</td>
             </tr>
             <tr>
-                <td colspan="2"><b>Defective Component Details</b></td>
+                <td colspan="2" style="padding-left: 300px"><b>Defective Component Details</b></td>
             </tr>
             <tr>
-                <td>Defective Component Name</td>
+                <td style="padding-left: 400px">Defective Component Name</td>
                 <td>{{processRequestInfo.defectiveComponentInfo.componentName}}</td>
             </tr>
             <tr>
-                <td>Type</td>
+                <td style="padding-left: 400px">Type</td>
                 <td>{{processRequestInfo.defectiveComponentInfo.componentType}}</td>
             </tr>
             <tr>
-                <td>Quantity</td>
+                <td style="padding-left: 400px">Quantity</td>
                 <td>{{processRequestInfo.defectiveComponentInfo.quantity}}</td>
             </tr>
             <tr>
-                <td>Description</td>
+                <td style="padding-left: 400px">Description</td>
                 <td>{{processRequestInfo.defectiveComponentInfo.description}}</td>
             </tr>
             <tr>
-                <td colspan="2"><b>Processed Charge Info</b></td>
+                <td colspan="2" style="padding-left: 300px"><b>Processed Charge Info</b></td>
             </tr>
             <tr>
-                <td>Processed Charge</td>
+                <td style="padding-left: 400px">Processed Charge</td>
                 <td>{{processedChargeInfo.processedCharge}}</td>
             </tr>
             <tr>
-                <td>Package and Delivery Charge</td>
+                <td style="padding-left: 400px">Package and Delivery Charge</td>
                 <td>{{processedChargeInfo.packageAndDeliveryCharge}}</td>
             </tr>
             <tr>
-                <td>Total Charge</td>
+                <td style="padding-left: 400px">Total Charge</td>
                 <td>{{processedChargeInfo.packageAndDeliveryCharge+processedChargeInfo.processedCharge}}</td>
             </tr>
             <tr>
-                <td>Date of Delivery</td>
+                <td style="padding-left: 400px">Date of Delivery</td>
                 <td>{{processedChargeInfo.dateOfDelivery}}</td>
             </tr>
         </tbody>
     </table>
+    <button routerLink="/billpage" style="padding: 10px;" class="btn btn-primary w-100" type="button" onclick=clearItem()><h3>Pay Now</h3></button>
 </div>
