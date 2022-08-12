@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProcessedChargeInfo } from '../process-charge-info';
 import { ProcessRequestInfo } from '../process-request-info';
 import { ReturnOrderServiceService } from '../return-order-service.service';
 
@@ -17,8 +18,7 @@ export class DefectivedetailsComponent implements OnInit {
   userName!:string;
   token!:string;
   processRequestInfo !: ProcessRequestInfo[];
-  retrivedata: Array<object> = [];
-  entry:any;
+  processedChargeInfo !: ProcessedChargeInfo[];
 
   ngOnInit(): void {
     let name = JSON.stringify(sessionStorage.getItem("userName")!);
@@ -30,10 +30,13 @@ export class DefectivedetailsComponent implements OnInit {
     this.token = JSON.stringify(sessionStorage.getItem("token")!);
     console.log(this.token);
    this.returnOrderService.getDefectiveDetails(this.token,this.userName).subscribe((data)=>{
-    data.forEach(this.entry =>{ 
-       this.retrivedata.push(this.entry);
-    )}
+    console.log(data[0]);
+      this.processRequestInfo = data[0].processRequestInfo;
+      this.processedChargeInfo = data[0].processedChargeInfo;
+      
    })
-  }
+}
+
+
 
 }

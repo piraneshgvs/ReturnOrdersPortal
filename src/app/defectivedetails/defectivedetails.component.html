@@ -1,18 +1,20 @@
-<div *ngFor="let detail of retrievedata">
+<div *ngFor="let detail of processRequestInfo;let i=index">
 <mat-accordion>
 <!-- #enddocregion basic-panel -->
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false" style="padding: 30px; background-color: antiquewhite;">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Self aware panel {{detail.contactNumber}}
+        {{i+1}}. RequestId : {{detail.id}}
         </mat-panel-title>
         <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+          Component Name : {{detail.defectiveComponentInfo.componentName}} 
         </mat-panel-description>
+        <p class="footer">
+          Date of Delivery : {{processedChargeInfo[i].dateOfDelivery}}
+        </p>
       </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
+      Total Charge : {{processedChargeInfo[i].packageAndDeliveryCharge+processedChargeInfo[i].processedCharge}}
     </mat-expansion-panel>
   </mat-accordion>
   <hr>
-</div>
