@@ -40,9 +40,15 @@ export class DefectivedetailsComponent implements OnInit {
 
 }
 
-getFormatedDate(i:any){
-  console.log(i);
+checkForDate(i:Date){
+  const currDate = new Date();
+  if(i>currDate){
+    return true;
+  }
+  return false;
 }
+
+
 
 
 

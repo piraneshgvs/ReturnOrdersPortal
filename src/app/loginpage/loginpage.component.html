@@ -1,10 +1,10 @@
 <div class="col-md-6 offset-md-3">
-    <h3 style="text-align: center"> Login </h3>
-    <h5 style="text-align: center; color: red;">{{errorMessage}}</h5>
+    <h3 style="text-align: center; font-size: 50px; padding-top: 10px;"> Login </h3>
+    <h5 style="text-align: center; color: red;font-size: 25px;">{{errorMessage}}</h5>
     <form [formGroup]="forGrp!">
 
         <div class="form-group" style="padding-bottom:20px">
-            <label><h4>UserName</h4></label>
+            <label style="font-size: 25px;">UserName</label>
             <input type="text" class="form-control" id="username" formControlName="username" style="padding-bottom: 20px" required/>
         </div>
         <div *ngIf="forGrp.controls['username'].invalid && (forGrp.controls['username'].dirty || forGrp.controls['username'].touched)"
@@ -16,7 +16,7 @@
 
 
         <div class="form-group" style="padding-bottom:20px">
-            <label><h4>Password</h4></label>
+            <label style="font-size: 25px;">Password</label>
             <input class="form-control" id="password" name="password" type="password" formControlName="password" style="padding-bottom: 20px" required />
         </div>
         <div *ngIf="forGrp.controls['password'].invalid && (forGrp.controls['password'].dirty || forGrp.controls['password'].touched)" class="alert alert-danger">

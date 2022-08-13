@@ -5,4 +5,12 @@
   .footer{
     padding-right: 150px;
   }
+
+  td{
+    font-size: large;
+  }
+  table, th, td {
+    border: 1px solid black;
+  }
+ 
   

@@ -23,7 +23,6 @@ export class NavbarComponent implements OnInit {
 
   loggedIn(){
     let user =  JSON.stringify(sessionStorage.getItem("userName")).trim();
-    console.log(user);
     this.name = user.slice(1,user.length-1);
     return sessionStorage.getItem("token");
   }

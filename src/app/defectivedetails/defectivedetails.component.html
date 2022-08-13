@@ -1,20 +1,111 @@
+<h3 style="font-size: 30px; text-align: center;">Your Return Order Details</h3>
 <div *ngFor="let detail of processRequestInfo;let i=index">
-<mat-accordion>
+<mat-accordion *ngIf=checkForDate(processedChargeInfo[i].dateOfDelivery)>
 <!-- #enddocregion basic-panel -->
     <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false" style="padding: 30px; background-color: antiquewhite;">
+                         (closed)="panelOpenState = false" style="padding: 30px; background-color: lightgreen;">
       <mat-expansion-panel-header>
-        <mat-panel-title>
-        {{i+1}}. RequestId : {{detail.id}}
+        <mat-panel-title style="padding-left: 10px;">
+        <h2 style="font-weight: 1000;">{{i+1}}. Request Id : {{detail.id}}</h2>
         </mat-panel-title>
-        <mat-panel-description>
-          Component Name : {{detail.defectiveComponentInfo.componentName}} 
+        <mat-panel-description style="padding-left: 150px;">
+          <h2 style="font-weight: 1000;">Component Name : {{detail.defectiveComponentInfo.componentName}}</h2>
         </mat-panel-description>
-        <p class="footer"  >
-          Date of Delivery : {{processedChargeInfo[i].dateOfDelivery}}
-        </p>
+          <h2 class="footer" style="font-weight: 1000;">Date of Delivery : {{processedChargeInfo[i].dateOfDelivery}}</h2>
       </mat-expansion-panel-header>
-      Total Charge : {{processedChargeInfo[i].packageAndDeliveryCharge+processedChargeInfo[i].processedCharge}}
+      <table border="5" style="padding-left: 50px;">
+        <tbody>
+      <tr>
+        <td><b>Contact Number Provided  </b></td>
+        <td>{{detail.contactNumber}}</td>
+      </tr>
+      <tr>
+        <td><b>Date of Creation  </b></td>
+        <td>{{detail.cdate}}</td>
+      </tr>
+      <tr>
+        <td><b>Component Type  </b></td>
+        <td>{{detail.defectiveComponentInfo.componentType}}</td>
+      </tr>
+      <tr>
+        <td><b>Quantity  </b></td>
+        <td>{{detail.defectiveComponentInfo.quantity}}</td>
+      </tr>
+      <tr>
+        <td><b>Description Provided  </b></td>
+        <td>{{detail.defectiveComponentInfo.description}}</td>
+      </tr>
+      <tr>
+        <td><b>Package and Delivery Charge  </b></td>
+        <td> {{processedChargeInfo[i].packageAndDeliveryCharge}}</td>
+      </tr>
+      <tr>
+        <td><b>Processed Charge  </b></td>
+        <td>{{processedChargeInfo[i].processedCharge}}</td>
+      </tr>
+      <tr>
+        <td><b>Total Charge  </b></td>
+        <td> {{processedChargeInfo[i].packageAndDeliveryCharge+processedChargeInfo[i].processedCharge}}</td>
+      </tr>
+    </tbody>
+    </table>
     </mat-expansion-panel>
   </mat-accordion>
+
+
+
+  <mat-accordion *ngIf=checkForDate(processedChargeInfo[i].dateOfDelivery)>
+    <!-- #enddocregion basic-panel -->
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false" style="padding: 30px; background-color: antiquewhite;">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="padding-left: 10px;">
+            <h2 style="font-weight: 1000;">{{i+1}}. Request Id : {{detail.id}}</h2>
+            </mat-panel-title>
+            <mat-panel-description style="padding-left: 150px;">
+              <h2 style="font-weight: 1000;">Component Name : {{detail.defectiveComponentInfo.componentName}}</h2>
+            </mat-panel-description>
+              <h2 class="footer" style="font-weight: 1000;">Date of Delivery : {{processedChargeInfo[i].dateOfDelivery}}</h2>
+          </mat-expansion-panel-header>
+          <table border="5" style="padding-left: 50px;">
+            <tbody>
+          <tr>
+            <td><b>Contact Number Provided  </b></td>
+            <td>{{detail.contactNumber}}</td>
+          </tr>
+          <tr>
+            <td><b>Date of Creation  </b></td>
+            <td>{{detail.cdate}}</td>
+          </tr>
+          <tr>
+            <td><b>Component Type  </b></td>
+            <td>{{detail.defectiveComponentInfo.componentType}}</td>
+          </tr>
+          <tr>
+            <td><b>Quantity  </b></td>
+            <td>{{detail.defectiveComponentInfo.quantity}}</td>
+          </tr>
+          <tr>
+            <td><b>Description Provided  </b></td>
+            <td>{{detail.defectiveComponentInfo.description}}</td>
+          </tr>
+          <tr>
+            <td><b>Package and Delivery Charge  </b></td>
+            <td> {{processedChargeInfo[i].packageAndDeliveryCharge}}</td>
+          </tr>
+          <tr>
+            <td><b>Processed Charge  </b></td>
+            <td>{{processedChargeInfo[i].processedCharge}}</td>
+          </tr>
+          <tr>
+            <td><b>Total Charge  </b></td>
+            <td> {{processedChargeInfo[i].packageAndDeliveryCharge+processedChargeInfo[i].processedCharge}}</td>
+          </tr>
+        </tbody>
+        </table>
+        </mat-expansion-panel>
+      </mat-accordion>
   <hr>
+
+
+  
