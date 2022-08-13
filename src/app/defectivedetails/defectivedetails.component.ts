@@ -42,7 +42,8 @@ export class DefectivedetailsComponent implements OnInit {
 
 checkForDate(i:Date){
   const currDate = new Date();
-  if(i>currDate){
+  console.log(currDate);
+  if(i<currDate){
     return true;
   }
   return false;
