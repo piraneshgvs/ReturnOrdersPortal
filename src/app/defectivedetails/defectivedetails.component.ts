@@ -1,8 +1,10 @@
+import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProcessedChargeInfo } from '../process-charge-info';
 import { ProcessRequestInfo } from '../process-request-info';
 import { ReturnOrderServiceService } from '../return-order-service.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-defectivedetails',
@@ -35,6 +37,11 @@ export class DefectivedetailsComponent implements OnInit {
       this.processedChargeInfo = data[0].processedChargeInfo;
       
    })
+
+}
+
+getFormatedDate(i:any){
+  console.log(i);
 }
 
 

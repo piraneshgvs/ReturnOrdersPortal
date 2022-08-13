@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BillpageComponent } from './billpage/billpage.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const router : Routes =[
   {path: "login", component: LoginpageComponent},
@@ -42,7 +43,8 @@ const router : Routes =[
     HttpClientModule,
     MatExpansionModule,
     RouterModule.forRoot(router),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

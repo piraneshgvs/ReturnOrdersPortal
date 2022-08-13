@@ -1,4 +1,3 @@
-import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Route, Router } from '@angular/router';
@@ -59,7 +58,7 @@ export class UserpageComponent implements OnInit {
 
   createForm() {
     this.forGrp = this.fb.group({
-      contactNumber: ['', Validators.required ],
+      contactNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")] ],
       componentName: ['', Validators.required ],
       componentType: ['', Validators.required ],
       quantity: ['', Validators.required ],

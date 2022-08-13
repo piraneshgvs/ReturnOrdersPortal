@@ -1,22 +1,27 @@
   <div>
   <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-    <div>
-        <h4 style="color: white; padding-left: 70px;">Return Order Portal</h4>
+    <div style="color: white; padding-left: 70px;font-size: 30px; font-weight: 1000;">
+     Return Order Portal
     </div>
-    <div class="navbar-collapse collapse" id="collapsingNavbar" style="justify-content:flex-end;padding-right:70px">
+    <div class="navbar-collapse collapse" id="collapsingNavbar" style="justify-content:flex-end;padding-right:70px;">
         <ul class="navbar-nav">
             <li *ngIf="!loggedIn()"class = "nav-item">
-                <a routerLink="/login" routerLinkActive="active" class="nav-link" ><h5>Login</h5></a>
+                <a routerLink="/login" routerLinkActive="active" class="nav-link" style="font-size: 20px;">Login</a>
             </li>
             <li *ngIf="loggedIn()" class = "nav-item">
-                <a routerLink="/defectivedetails" routerLinkActive="active" class="nav-link"><h5>Defective Details</h5></a>
+                <a routerLink="/defectivedetails" routerLinkActive="active" class="nav-link" style="font-size: 20px;">Defective Details</a>
             </li>
             <li *ngIf="loggedIn()" class = "nav-item">
-                <a routerLink="/userpage" routerLinkActive="active" class="nav-link"><h5>Return Order Form</h5></a>
+                <a routerLink="/userpage" routerLinkActive="active" class="nav-link" style="font-size: 20px;">Return Order Form</a>
             </li>
-            <li *ngIf="loggedIn()" class = "nav-item">
-                <a routerLink="/login" routerLinkActive="active" class="nav-link" onclick=sessionStorage.clear()><h5>logout</h5></a>
-            </li>
+            <li *ngIf="loggedIn()" ngbDropdown class="nav-item dropdown">
+                <a *ngIf="name" ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px;">
+                  {{name}}
+                </a>
+                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a  class="dropdown-item" routerLink="/login" onclick=sessionStorage.clear() style="font-size: 20px;">logout</a>
+                </div>
+              </li>
        </ul>
     </div>
     </nav>

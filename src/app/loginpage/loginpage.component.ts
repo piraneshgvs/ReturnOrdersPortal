@@ -33,6 +33,10 @@ export class LoginpageComponent implements OnInit {
         console.log(data.contactNumber)
         sessionStorage.setItem("userName",this.jwtRequest.username);
         this.router.navigate(["/defectivedetails"]);
+    },
+    (error)=>{
+      console.log("Invalid credentials!!!");
+      this.errorMessage="Invalid Credentials!!";
     })
   }
   else{

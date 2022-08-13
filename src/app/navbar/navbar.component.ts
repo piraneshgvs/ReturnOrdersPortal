@@ -10,9 +10,11 @@ import { ReturnOrderServiceService } from '../return-order-service.service';
 export class NavbarComponent implements OnInit {
 
   isLoggedIn : boolean = false;
+  name !: string;
   constructor(private returnOrderService : ReturnOrderServiceService) { }
 
   ngOnInit(): void {
+   
    /* this.returnOrderService.loginStatusSubject.asObservable().subscribe(data=>{
       this.isLoggedIn=this.returnOrderService.isLoggedIn();
       this.checkLogin();
@@ -20,7 +22,14 @@ export class NavbarComponent implements OnInit {
   }
 
   loggedIn(){
+    let user =  JSON.stringify(sessionStorage.getItem("userName")).trim();
+    console.log(user);
+    this.name = user.slice(1,user.length-1);
     return sessionStorage.getItem("token");
+  }
+
+  named(){
+   
   }
  
 
