@@ -1,5 +1,6 @@
 import { getLocaleDayPeriods } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProcessedChargeInfo } from '../process-charge-info';
 import { ProcessRequestInfo } from '../process-request-info';
 import { ReturnOrderServiceService } from '../return-order-service.service';
@@ -18,13 +19,18 @@ export class PaymentComponent implements OnInit {
   processedChargeInfo !: ProcessedChargeInfo;
   isDataLoaded : boolean=false;
 
-  constructor(private returnOrderService : ReturnOrderServiceService) { }
+  constructor(private returnOrderService : ReturnOrderServiceService, private route : Router) { }
 
 ngOnInit() : void {
+  if(sessionStorage.getItem("userName")&&sessionStorage.getItem("token")){
     let id = parseInt(sessionStorage.getItem("reqId")!);
    this.reqId = id;
     console.log("inside",id);
      this.getReqDetails(this.reqId);
+  }
+  else{
+    this.route.navigate(["/login"]);
+  }
   }
 
    getReqDetails(reqId:number){

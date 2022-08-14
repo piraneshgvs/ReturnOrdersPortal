@@ -23,9 +23,14 @@ export class DefectivedetailsComponent implements OnInit {
   processedChargeInfo !: ProcessedChargeInfo[];
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("userName")&&sessionStorage.getItem("token")){
     let name = JSON.stringify(sessionStorage.getItem("userName")!);
     this.userName = name.slice(1,name.length-1);
     this.getDetails(this.userName);
+    }
+    else{
+      this.router.navigate(["/login"]);
+    }
   }
 
   getDetails(userName:string){
