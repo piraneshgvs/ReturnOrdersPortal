@@ -1,5 +1,5 @@
 <h3 style="font-size: 30px; text-align: center;">Your Return Order Details</h3>
-<div *ngFor="let detail of processRequestInfo;let i=index">
+<div *ngFor="let detail of processRequestInfo.slice().reverse();let i=index;">
 <mat-accordion *ngIf=!checkForDate(processedChargeInfo[i].dateOfDelivery)>
 <!-- #enddocregion basic-panel -->
     <mat-expansion-panel (opened)="panelOpenState = true"
