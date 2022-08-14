@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { JwtRequest } from './jwt-request';
 import { ProcessRequestInfo } from './process-request-info';
+import { UserInformation } from './user-information';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,10 @@ export class ReturnOrderServiceService {
     headers.set('Content-Type', 'application/json');
     console.log(id);
     return this.http.get("http://localhost:8082/processing/ProcessDetail/"+id,{headers:headers});
+  }
+
+  postTheRegisteredDetails(userInformation:UserInformation):Observable<any>{
+    return this.http.post("http://localhost:8081/register",userInformation);
   }
 
   public isLoggedIn(){

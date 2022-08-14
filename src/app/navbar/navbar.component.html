@@ -8,6 +8,9 @@
             <li *ngIf="!loggedIn()"class = "nav-item">
                 <a routerLink="/login" routerLinkActive="active" class="nav-link" style="font-size: 20px;">Login</a>
             </li>
+            <li *ngIf="!loggedIn()"class = "nav-item">
+                <a routerLink="/register" routerLinkActive="active" class="nav-link" style="font-size: 20px;">Signup</a>
+            </li>
             <li *ngIf="loggedIn()" class = "nav-item">
                 <a routerLink="/defectivedetails" routerLinkActive="active" class="nav-link" style="font-size: 20px;">Defective Details</a>
             </li>

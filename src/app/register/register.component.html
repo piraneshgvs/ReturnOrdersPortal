@@ -1,0 +1,79 @@
+<div class="col-md-6 offset-md-3">
+    <h3 style="text-align: center; font-size: 50px; padding-top: 10px;"> Register Form </h3>
+    <h5 style="text-align: center; color: red;font-size: 25px;">{{errorMessage}}</h5>
+    <form [formGroup]="forGrp!">
+
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">Name : </label>
+            <input  class ="form-control" id = "name" formControlName="name" name = "name" style="padding-bottom: 10px" required/>
+        </div>
+        <div *ngIf="forGrp.controls['name'].invalid && (forGrp.controls['name'].dirty || forGrp.controls['name'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="forGrp.controls['name'].errors?.['required']">
+            Name is required
+        </div>
+        </div>
+    
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">Contact Number : </label>
+            <input  class ="form-control" id = "contactNumber" formControlName="contactNumber" name = "contactNumber" style="padding-bottom: 10px" maxlength=10 required/>
+        </div>
+        <div *ngIf="forGrp.controls['contactNumber'].invalid && (forGrp.controls['contactNumber'].dirty || forGrp.controls['contactNumber'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="forGrp.controls['contactNumber'].errors?.['required']">
+            Contact Number is required
+        </div>
+        <div *ngIf="forGrp.controls['contactNumber'].errors?.['pattern']">
+            Please Enter 10 digit mobile number!!
+        </div>
+        </div>
+
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">EmailId : </label>
+            <input  class ="form-control" id = "emailId" formControlName="emailId" name = "emailId" style="padding-bottom: 10px" required/>
+        </div>
+        <div *ngIf="forGrp.controls['emailId'].invalid && (forGrp.controls['emailId'].dirty || forGrp.controls['emailId'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="forGrp.controls['emailId'].errors?.['required']">
+            Email is required.
+        </div>
+        <div *ngIf="forGrp.controls['emailId'].errors?.['email']">
+            Please enter a valid email.
+        </div>
+        </div>
+
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">UserName : </label>
+            <input  class ="form-control" id = "userName" formControlName="userName" name = "userName" style="padding-bottom: 10px"  required/>
+        </div>
+        <div *ngIf="forGrp.controls['userName'].invalid && (forGrp.controls['userName'].dirty || forGrp.controls['userName'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="forGrp.controls['userName'].errors?.['required']">
+            UserName is required
+        </div>
+        </div>
+
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">Password : </label>
+            <input  class ="form-control" id = "password" formControlName="password" name = "password" style="padding-bottom: 10px" type="password" required/>
+        </div>
+        <div *ngIf="forGrp.controls['password'].invalid && (forGrp.controls['password'].dirty || forGrp.controls['password'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="forGrp.controls['password'].errors?.['required']">
+            Password is Required
+        </div>
+    </div>
+
+    <div class="form-group" style="padding-bottom:20px">
+        <label style="font-size: 25px;">Confirm Password : </label>
+        <input  class ="form-control" id = "confirmPassword" formControlName="confirmPassword" name = "confirmPassword" style="padding-bottom: 10px" type="password" required/>
+    </div>
+   <div *ngIf="forGrp.controls['confirmPassword'].getError('Mushmatch')!=null"  class="alert alert-danger" >Confirm Password Mismatch</div>
+
+
+    
+        <button style="padding: 10px;" class="btn btn-primary w-100" type="button" (click)="onSubmit()" [disabled]="forGrp && forGrp.invalid">Submit</button>
+    
+    </form>
+    </div> 
+    <router-outlet></router-outlet>

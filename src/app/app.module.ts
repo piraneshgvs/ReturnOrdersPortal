@@ -16,13 +16,15 @@ import { BillpageComponent } from './billpage/billpage.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from './register/register.component';
 
 const router : Routes =[
   {path: "login", component: LoginpageComponent},
   {path: "userpage", component: UserpageComponent},
   {path: "defectivedetails", component: DefectivedetailsComponent},
   {path: "payment", component: PaymentComponent},
-  {path: "billpage", component: BillpageComponent}
+  {path: "billpage", component: BillpageComponent},
+  {path : "register", component: RegisterComponent}
 ];
 
 @NgModule({
@@ -34,6 +36,7 @@ const router : Routes =[
     DefectivedetailsComponent,
     PaymentComponent,
     BillpageComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
