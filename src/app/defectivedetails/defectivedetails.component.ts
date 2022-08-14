@@ -34,7 +34,7 @@ export class DefectivedetailsComponent implements OnInit {
    this.returnOrderService.getDefectiveDetails(this.token,this.userName).subscribe((data)=>{
     console.log(data[0]);
       this.processRequestInfo = data[0].processRequestInfo;
-      this.processedChargeInfo = data[0].processedChargeInfo;
+      this.processedChargeInfo = data[0].processedChargeInfo.slice().reverse();
       
    })
 

@@ -61,7 +61,7 @@ export class UserpageComponent implements OnInit {
       contactNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")] ],
       componentName: ['', Validators.required ],
       componentType: ['', Validators.required ],
-      quantity: ['', Validators.required ],
+      quantity: ['', [Validators.required, Validators.pattern("^[0-9]*$") ]],
       description: ['', Validators.required ]
     });
 
