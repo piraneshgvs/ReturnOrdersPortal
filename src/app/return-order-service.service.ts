@@ -17,30 +17,30 @@ export class ReturnOrderServiceService {
 
   
   autheticateUser(jwtRequest:JwtRequest):Observable<any>{
-      return this.http.post("http://localhost:8081/authenticate",jwtRequest);  
+      return this.http.post("http://localhost:8081/api/auth/authenticate",jwtRequest);  
   }
 
   postDefectiveDetails(token:string, processRequestInfo:ProcessRequestInfo):Observable<any>{
     var headers = new HttpHeaders().set("Authorization", "Bearer " + token);
     headers.set('Content-Type', 'application/json');
-      return this.http.post("http://localhost:8082/processing/CompleteProcessing",processRequestInfo,{headers:headers});
+      return this.http.post("http://localhost:8082/api/processing/completeProcessing",processRequestInfo,{headers:headers});
   }
 
   getDefectiveDetails(token:string,userName:string):Observable<any>{
     var headers = new HttpHeaders().set("Authorization", "Bearer " + token);
     headers.set('Content-Type', 'application/json');
-    return this.http.get("http://localhost:8082/processing/getDefectiveDetails/"+userName,{headers:headers});
+    return this.http.get("http://localhost:8082/api/processing/getDefectiveDetails/"+userName,{headers:headers});
   }
 
   getDefectiveDetailsById(token:string, id:number):Observable<any>{
     var headers = new HttpHeaders().set("Authorization", "Bearer " + token);
     headers.set('Content-Type', 'application/json');
     console.log(id);
-    return this.http.get("http://localhost:8082/processing/ProcessDetail/"+id,{headers:headers});
+    return this.http.get("http://localhost:8082/api/processing/processDetail/"+id,{headers:headers});
   }
 
   postTheRegisteredDetails(userInformation:UserInformation):Observable<any>{
-    return this.http.post("http://localhost:8081/register",userInformation);
+    return this.http.post("http://localhost:8081/api/auth/register",userInformation);
   }
 
   public isLoggedIn(){
