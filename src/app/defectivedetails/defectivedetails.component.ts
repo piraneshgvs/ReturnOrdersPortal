@@ -9,13 +9,15 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-defectivedetails',
   templateUrl: './defectivedetails.component.html',
-  styleUrls: ['./defectivedetails.component.css']
+  styleUrls: ['./defectivedetails.component.css'],
+  providers: [DatePipe]
 })
 export class DefectivedetailsComponent implements OnInit {
 
   panelOpenState = false;
+  myDate = new Date();
 
-  constructor(private returnOrderService : ReturnOrderServiceService, private router : Router) { }
+  constructor(private returnOrderService : ReturnOrderServiceService, private router : Router, private datePipe: DatePipe) { }
 
   userName!:string;
   token!:string;
@@ -38,6 +40,7 @@ export class DefectivedetailsComponent implements OnInit {
     console.log(this.token);
    this.returnOrderService.getDefectiveDetails(this.token,this.userName).subscribe((data)=>{
     console.log(data[0]);
+       
       this.processRequestInfo = data[0].processRequestInfo;
       this.processedChargeInfo = data[0].processedChargeInfo.slice().reverse();
       
@@ -45,14 +48,7 @@ export class DefectivedetailsComponent implements OnInit {
 
 }
 
-checkForDate(i:Date){
-  const currDate = new Date();
-  console.log(currDate);
-  if(i<currDate){
-    return true;
-  }
-  return false;
-}
+
 
 
 
