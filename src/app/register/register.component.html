@@ -5,7 +5,7 @@
 
         <div class="form-group" style="padding-bottom:20px">
             <label style="font-size: 25px;">Name : </label>
-            <input  class ="form-control" id = "name" formControlName="name" name = "name" style="padding-bottom: 10px" required/>
+            <input  class ="form-control" id = "name" formControlName="name" name = "name" style="padding-bottom: 10px" placeholder="Enter your Name" required/>
         </div>
         <div *ngIf="forGrp.controls['name'].invalid && (forGrp.controls['name'].dirty || forGrp.controls['name'].touched)"
         class="alert alert-danger">
@@ -16,7 +16,7 @@
     
         <div class="form-group" style="padding-bottom:20px">
             <label style="font-size: 25px;">Contact Number : </label>
-            <input  class ="form-control" id = "contactNumber" formControlName="contactNumber" name = "contactNumber" style="padding-bottom: 10px" maxlength=10 required/>
+            <input  class ="form-control" id = "contactNumber" formControlName="contactNumber" name = "contactNumber" style="padding-bottom: 10px" maxlength=10 placeholder="Enter your Contact Number" required/>
         </div>
         <div *ngIf="forGrp.controls['contactNumber'].invalid && (forGrp.controls['contactNumber'].dirty || forGrp.controls['contactNumber'].touched)"
         class="alert alert-danger">
@@ -30,7 +30,7 @@
 
         <div class="form-group" style="padding-bottom:20px">
             <label style="font-size: 25px;">EmailId : </label>
-            <input  class ="form-control" id = "emailId" formControlName="emailId" name = "emailId" style="padding-bottom: 10px" required/>
+            <input  class ="form-control" id = "emailId" formControlName="emailId" name = "emailId" style="padding-bottom: 10px" placeholder="Enter your Email id" required/>
         </div>
         <div *ngIf="forGrp.controls['emailId'].invalid && (forGrp.controls['emailId'].dirty || forGrp.controls['emailId'].touched)"
         class="alert alert-danger">
@@ -44,29 +44,35 @@
 
         <div class="form-group" style="padding-bottom:20px">
             <label style="font-size: 25px;">UserName : </label>
-            <input  class ="form-control" id = "userName" formControlName="userName" name = "userName" style="padding-bottom: 10px"  required/>
+            <input  class ="form-control" id = "userName" formControlName="userName" name = "userName" style="padding-bottom: 10px" placeholder="Enter your UserName"  required/>
         </div>
         <div *ngIf="forGrp.controls['userName'].invalid && (forGrp.controls['userName'].dirty || forGrp.controls['userName'].touched)"
         class="alert alert-danger">
         <div *ngIf="forGrp.controls['userName'].errors?.['required']">
             UserName is required
         </div>
+        <div *ngIf="forGrp.controls['userName'].errors?.['minlength']">
+           UserName should have atleast 4 Characters
+        </div>
         </div>
 
         <div class="form-group" style="padding-bottom:20px">
             <label style="font-size: 25px;">Password : </label>
-            <input  class ="form-control" id = "password" formControlName="password" name = "password" style="padding-bottom: 10px" type="password" required/>
+            <input  class ="form-control" id = "password" formControlName="password" name = "password" style="padding-bottom: 10px" type="password" placeholder="Enter your password" required/>
         </div>
         <div *ngIf="forGrp.controls['password'].invalid && (forGrp.controls['password'].dirty || forGrp.controls['password'].touched)"
         class="alert alert-danger">
         <div *ngIf="forGrp.controls['password'].errors?.['required']">
             Password is Required
         </div>
+        <div *ngIf="forGrp.controls['password'].errors?.['minlength']">
+            Password length should be above 5 Characters
+        </div>
     </div>
 
     <div class="form-group" style="padding-bottom:20px">
         <label style="font-size: 25px;">Confirm Password : </label>
-        <input  class ="form-control" id = "confirmPassword" formControlName="confirmPassword" name = "confirmPassword" style="padding-bottom: 10px" type="password" required/>
+        <input  class ="form-control" id = "confirmPassword" formControlName="confirmPassword" name = "confirmPassword" style="padding-bottom: 10px" type="password" placeholder="Re-enter your password" required/>
     </div>
    <div *ngIf="forGrp.controls['confirmPassword'].getError('Mushmatch')!=null"  class="alert alert-danger" >Confirm Password Mismatch</div>
 

@@ -40,18 +40,19 @@ export class UserpageComponent implements OnInit {
   }
 
   onSubmit(){
+    if(confirm("Once submitted then order cannot be deleted!!")==true){
     this.processRequestInfo.contactNumber = this.forGrp?.get('contactNumber')?.value;
     this.processRequestInfo.defectiveComponentInfo.componentName = this.forGrp?.get('componentName')?.value;
     this.processRequestInfo.defectiveComponentInfo.componentType = this.forGrp?.get('componentType')?.value;
     this.processRequestInfo.defectiveComponentInfo.quantity = this.forGrp?.get('quantity')?.value;
     this.processRequestInfo.defectiveComponentInfo.description = this.forGrp?.get('description')?.value;
-    console.log(this.processRequestInfo.contactNumber);
+    //console.log(this.processRequestInfo.contactNumber);
    if(this.processRequestInfo.contactNumber.trim().length==10 && this.processRequestInfo.defectiveComponentInfo.componentName.trim() && this.processRequestInfo.defectiveComponentInfo.componentType.trim() && this.processRequestInfo.defectiveComponentInfo.quantity && this.processRequestInfo.defectiveComponentInfo.description.trim()){
    this.token = JSON.stringify(sessionStorage.getItem("token")!);
-    console.log(this.processRequestInfo.defectiveComponentInfo.componentName);
+    //console.log(this.processRequestInfo.defectiveComponentInfo.componentName);
     this.processRequestInfo.userName=this.userName;
     this.returnOrderService.postDefectiveDetails(this.token, this.processRequestInfo).subscribe(data=>{
-      console.log(data);
+      //console.log(data);
       sessionStorage.setItem("reqId",data);
       this.router.navigate(["/payment"]);
      })
@@ -59,6 +60,7 @@ export class UserpageComponent implements OnInit {
     else{
       this.errorMessage="Please fill out all the details of the defective component!!!"
     }
+  }
   }
 
   createForm() {

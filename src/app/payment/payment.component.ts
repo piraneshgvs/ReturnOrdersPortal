@@ -28,7 +28,7 @@ ngOnInit() : void {
   else if(sessionStorage.getItem("userName")&&sessionStorage.getItem("token")){
     let id = parseInt(sessionStorage.getItem("reqId")!);
     this.reqId = id;
-    console.log("inside",id);
+    //console.log("inside",id);
     this.getReqDetails(this.reqId);
   }
   else{
@@ -39,7 +39,7 @@ ngOnInit() : void {
    getReqDetails(reqId:number){
     this.token = JSON.stringify(sessionStorage.getItem("token")!);
     this.returnOrderService.getDefectiveDetailsById(this.token, this.reqId).subscribe(data=>{
-      console.log(data);
+      //console.log(data);
     this.processedChargeInfo = data.processedChargeInfo;
     this.processRequestInfo = data.processRequestInfo;
     this.isDataLoaded=true;

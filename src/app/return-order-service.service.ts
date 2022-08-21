@@ -35,7 +35,7 @@ export class ReturnOrderServiceService {
   getDefectiveDetailsById(token:string, id:number):Observable<any>{
     var headers = new HttpHeaders().set("Authorization", "Bearer " + token);
     headers.set('Content-Type', 'application/json');
-    console.log(id);
+    //console.log(id);
     return this.http.get("http://localhost:8082/api/processing/processDetail/"+id,{headers:headers});
   }
 

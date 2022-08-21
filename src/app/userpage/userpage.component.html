@@ -10,7 +10,7 @@
     
         <div class="form-group" style="padding-bottom:20px">
             <label style="font-size: 25px;">Contact Number : </label>
-            <input  class ="form-control" id = "contactNumber" formControlName="contactNumber" name = "contactNumber" style="padding-bottom: 10px" maxlength=10 required/>
+            <input  class ="form-control" id = "contactNumber" formControlName="contactNumber" name = "contactNumber" style="padding-bottom: 10px" maxlength=10 placeholder="Enter Contact Number" required/>
         </div>
         <div *ngIf="forGrp.controls['contactNumber'].invalid && (forGrp.controls['contactNumber'].dirty || forGrp.controls['contactNumber'].touched)"
         class="alert alert-danger">
@@ -24,7 +24,7 @@
 
         <div class="form-group" style="padding-bottom:20px">
             <label style="font-size: 25px;">Component Name : </label>
-            <input  class ="form-control" id = "componentName" formControlName="componentName" name = "componentName" style="padding-bottom: 10px" required/>
+            <input  class ="form-control" id = "componentName" formControlName="componentName" name = "componentName" style="padding-bottom: 10px" placeholder="Enter Component Name" required/>
         </div>
         <div *ngIf="forGrp.controls['componentName'].invalid && (forGrp.controls['componentName'].dirty || forGrp.controls['componentName'].touched)"
         class="alert alert-danger">
@@ -35,7 +35,7 @@
 
         <div class="form-group" style="padding-bottom:20px">
         <label style="font-size: 25px;">Component Type : </label>
-        <select id="componentType" class="form-control" formControlName="componentType" style="padding-bottom: 10px" required>
+        <select id="componentType" class="form-control" formControlName="componentType" style="padding-bottom: 10px" placeholder="Enter Component Type" required>
             <option value="Integral">Integral</option>
             <option value="Accessory">Accessory</option>
           </select>
@@ -49,7 +49,7 @@
 
         <div class="form-group" style="padding-bottom:20px">
             <label style="font-size: 25px;">Quantity : </label>
-            <input  class ="form-control" id = "quantity" formControlName="quantity" name = "quantity" style="padding-bottom: 10px" required/>
+            <input  class ="form-control" id = "quantity" formControlName="quantity" name = "quantity" style="padding-bottom: 10px" placeholder="Enter Quantity" required/>
         </div>
         <div *ngIf="forGrp.controls['quantity'].invalid && (forGrp.controls['quantity'].dirty || forGrp.controls['quantity'].touched)"
         class="alert alert-danger">
@@ -63,7 +63,7 @@
 
         <div class="form-group" style="padding-bottom:20px">
             <label style="font-size: 25px;">Description : </label>
-            <textarea  class ="form-control" type="text" id = "description" formControlName="description" name = "description" style="padding-bottom:100px" maxlength="255"  required></textarea>
+            <textarea  class ="form-control" type="text" id = "description" formControlName="description" name = "description" style="padding-bottom:100px" maxlength="255" placeholder="Enter Description" required></textarea>
         </div>
         <div *ngIf="forGrp.controls['description'].invalid && (forGrp.controls['description'].dirty || forGrp.controls['description'].touched)"
         class="alert alert-danger">

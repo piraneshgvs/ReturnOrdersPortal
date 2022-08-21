@@ -5,7 +5,7 @@
 
         <div class="form-group" style="padding-bottom:20px">
             <label style="font-size: 25px;">UserName</label>
-            <input type="text" class="form-control" id="username" formControlName="username" style="padding-bottom: 20px" required/>
+            <input type="text" class="form-control" id="username" formControlName="username" style="padding-bottom: 20px" placeholder="Enter Username" required/>
         </div>
         <div *ngIf="forGrp.controls['username'].invalid && (forGrp.controls['username'].dirty || forGrp.controls['username'].touched)"
             class="alert alert-danger">
@@ -17,7 +17,7 @@
 
         <div class="form-group" style="padding-bottom:20px">
             <label style="font-size: 25px;">Password</label>
-            <input class="form-control" id="password" name="password" type="password" formControlName="password" style="padding-bottom: 20px" required />
+            <input class="form-control" id="password" name="password" type="password" formControlName="password" style="padding-bottom: 20px" placeholder="Enter Password" required />
         </div>
         <div *ngIf="forGrp.controls['password'].invalid && (forGrp.controls['password'].dirty || forGrp.controls['password'].touched)" class="alert alert-danger">
             <div *ngIf="forGrp.controls['password'].errors?.['required']">

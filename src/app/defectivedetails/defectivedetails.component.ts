@@ -37,9 +37,9 @@ export class DefectivedetailsComponent implements OnInit {
 
   getDetails(userName:string){
     this.token = JSON.stringify(sessionStorage.getItem("token")!);
-    console.log(this.token);
+    //console.log(this.token);
    this.returnOrderService.getDefectiveDetails(this.token,this.userName).subscribe((data)=>{
-    console.log(data[0]);
+   // console.log(data[0]);
        
       this.processRequestInfo = data[0].processRequestInfo;
       this.processedChargeInfo = data[0].processedChargeInfo.slice().reverse();

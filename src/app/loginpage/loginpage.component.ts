@@ -33,9 +33,9 @@ export class LoginpageComponent implements OnInit {
     if(this.jwtRequest.username.trim()&&this.jwtRequest.password.trim()){
     this.returnOrderService.autheticateUser(this.jwtRequest).subscribe({
       next:(data)=>{
-        console.log(data);
+        //console.log(data);
         sessionStorage.setItem("token",data.jwttoken);
-        console.log(data.contactNumber)
+       // console.log(data.contactNumber)
         sessionStorage.setItem("userName",this.jwtRequest.username);
         this.router.navigate(["/defectivedetails"]);
     },
