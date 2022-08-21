@@ -22,11 +22,14 @@ export class PaymentComponent implements OnInit {
   constructor(private returnOrderService : ReturnOrderServiceService, private route : Router) { }
 
 ngOnInit() : void {
-  if(sessionStorage.getItem("userName")&&sessionStorage.getItem("token")){
+  if(sessionStorage.getItem("userName")&&sessionStorage.getItem("token")&&!sessionStorage.getItem("reqId")){
+    this.route.navigate(["/userpage"]);
+  }
+  else if(sessionStorage.getItem("userName")&&sessionStorage.getItem("token")){
     let id = parseInt(sessionStorage.getItem("reqId")!);
-   this.reqId = id;
+    this.reqId = id;
     console.log("inside",id);
-     this.getReqDetails(this.reqId);
+    this.getReqDetails(this.reqId);
   }
   else{
     this.route.navigate(["/login"]);

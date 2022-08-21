@@ -21,6 +21,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
       this.userInformation = new UserInformation(null,"","","","","");
+      if(sessionStorage.getItem("userName")&&sessionStorage.getItem("token")){
+        this.router.navigate(["/defectivedetails"])
+         }
   }
 
 

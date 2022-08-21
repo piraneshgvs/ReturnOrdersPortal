@@ -27,8 +27,8 @@ export class NavbarComponent implements OnInit {
     return sessionStorage.getItem("token");
   }
 
-  named(){
-   
+  clearSession(){
+    sessionStorage.clear();
   }
  
 

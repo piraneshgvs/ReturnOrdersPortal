@@ -14,6 +14,7 @@ export class LoginpageComponent implements OnInit {
   jwtRequest !: JwtRequest;
   forGrp !: FormGroup;
   errorMessage !: string;
+  userName !: string;
 
   constructor(private returnOrderService:ReturnOrderServiceService,  private router : Router, private fb : FormBuilder) { 
     this.createForm();
@@ -21,6 +22,9 @@ export class LoginpageComponent implements OnInit {
 
   ngOnInit(): void {
     this.jwtRequest = new JwtRequest("","");
+    if(sessionStorage.getItem("userName")&&sessionStorage.getItem("token")){
+     this.router.navigate(["/defectivedetails"])
+      }
   }
 
   onSubmit(){

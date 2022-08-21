@@ -22,7 +22,7 @@
                   {{name}}
                 </a>
                 <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a  class="dropdown-item" routerLink="/login" onclick=sessionStorage.clear() style="font-size: 20px;">logout</a>
+                    <a  class="dropdown-item" routerLink="/login" (click)="clearSession()" style="font-size: 20px;">logout</a>
                 </div>
               </li>
        </ul>

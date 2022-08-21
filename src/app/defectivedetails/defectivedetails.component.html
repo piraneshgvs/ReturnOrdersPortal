@@ -1,4 +1,5 @@
 <h3 style="font-size: 30px; text-align: center;">Your Return Order Details</h3>
+<div *ngIf="processRequestInfo">
 <h3 *ngIf="processRequestInfo.length==0" style="font-size: 20px; text-align: center;color: red;">You haven't created any Orders.</h3>
 <div *ngFor="let detail of processRequestInfo.slice().reverse();let i=index;">
 <mat-accordion>
@@ -53,6 +54,7 @@
     </mat-expansion-panel>
   </mat-accordion>
   <hr>
+</div>
 
 
   
